@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="text-xl font-bold mb-4">My Applications</h2>
+
+{% for i in internships %}
+<p class="bg-white p-4 rounded shadow mb-2">{{ i.title }} - {{ i.company }}</p>
+{% endfor %}
+{% endblock %}

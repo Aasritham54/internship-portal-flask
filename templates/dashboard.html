@@ -1,12 +1,14 @@
-<head>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<h2>Dashboard</h2>
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="text-2xl font-bold mb-4">Dashboard</h2>
 
-<nav>
-  <a href="/internships">View Internships</a> |
-  <a href="/add-internship">Post Internship</a> |
-  <a href="/logout">Logout</a>
-</nav>
+<div class="space-x-4">
+  <a href="/internships" class="bg-blue-600 text-white px-4 py-2 rounded">View Internships</a>
 
-<p>Welcome, you are logged in.</p>
+  {% if current_user.role == 'admin' %}
+    <a href="/add-internship" class="bg-green-600 text-white px-4 py-2 rounded">Post Internship</a>
+  {% else %}
+    <a href="/my-applications" class="bg-purple-600 text-white px-4 py-2 rounded">My Applications</a>
+  {% endif %}
+</div>
+{% endblock %}

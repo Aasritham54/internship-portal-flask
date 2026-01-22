@@ -1,10 +1,40 @@
-<head>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<h2>Register</h2>
-<form method="POST">
-    <input name="username" placeholder="Username" required><br>
-    <input name="email" placeholder="Email" required><br>
-    <input name="password" type="password" placeholder="Password" required><br>
-    <button type="submit">Register</button>
-</form>
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-md bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-bold text-center mb-6">Create an account</h2>
+
+        <form method="POST">
+            <div class="mb-4">
+                <label class="block mb-2 text-sm font-medium">Username</label>
+                <input type="text" name="username" required
+                    class="bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full p-2.5">
+            </div>
+
+            <div class="mb-4">
+                <label class="block mb-2 text-sm font-medium">Email</label>
+                <input type="email" name="email" required
+                    class="bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full p-2.5">
+            </div>
+
+            <div class="mb-6">
+                <label class="block mb-2 text-sm font-medium">Password</label>
+                <input type="password" name="password" required
+                    class="bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full p-2.5">
+            </div>
+
+            <button type="submit"
+                class="w-full text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5">
+                Register
+            </button>
+        </form>
+
+        <p class="text-sm text-center mt-4">
+            Already have an account?
+            <a href="{{ url_for('login') }}" class="text-blue-600 hover:underline">Login</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

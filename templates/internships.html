@@ -1,13 +1,16 @@
-<head>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<h2>Available Internships</h2>
-<ul>
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="text-xl font-bold mb-4">Internships</h2>
+
 {% for i in internships %}
-  <li>
-    <strong>{{ i.title }}</strong> - {{ i.company }}<br>
-    {{ i.description }}<br>
-    <a href="/apply/{{ i.id }}">Apply</a>
-  </li>
+<div class="bg-white p-4 rounded shadow mb-4">
+  <h3 class="font-bold">{{ i.title }}</h3>
+  <p>{{ i.company }}</p>
+  <p>{{ i.description }}</p>
+
+  {% if current_user.role == 'student' %}
+    <a href="/apply/{{ i.id }}" class="text-blue-600">Apply</a>
+  {% endif %}
+</div>
 {% endfor %}
-</ul>
+{% endblock %}
