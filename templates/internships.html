@@ -1,0 +1,13 @@
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<h2>Available Internships</h2>
+<ul>
+{% for i in internships %}
+  <li>
+    <strong>{{ i.title }}</strong> - {{ i.company }}<br>
+    {{ i.description }}<br>
+    <a href="/apply/{{ i.id }}">Apply</a>
+  </li>
+{% endfor %}
+</ul>

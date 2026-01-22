@@ -1,2 +1,12 @@
-<h2>Welcome to Dashboard</h2>
-<a href="/logout">Logout</a>
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<h2>Dashboard</h2>
+
+<nav>
+  <a href="/internships">View Internships</a> |
+  <a href="/add-internship">Post Internship</a> |
+  <a href="/logout">Logout</a>
+</nav>
+
+<p>Welcome, you are logged in.</p>
